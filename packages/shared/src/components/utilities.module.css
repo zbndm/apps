@@ -1,0 +1,34 @@
+.legal {
+  & a {
+    display: inline-block;
+    text-decoration: underline;
+    color: inherit;
+    @supports (display: contents) {
+      display: contents;
+    }
+  }
+}
+
+.pageContainer {
+  max-width: $pageMaxWidth;
+}
+
+:global(.non-responsive-header) ~ .pageContainer {
+  @screen laptop {
+    min-height: calc(100vh - $navBarHeight);
+  }
+}
+
+.feedPage {
+  padding-top: 3.75rem;
+
+  &.notReady {
+    & > * {
+      visibility: hidden;
+    }
+  }
+}
+
+.activeTabIndicator {
+  border-radius: 0.063rem;
+}

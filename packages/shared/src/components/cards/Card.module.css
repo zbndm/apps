@@ -1,0 +1,88 @@
+.title {
+  word-break: break-word;
+}
+
+.blur {
+  filter: blur(1.25rem);
+}
+
+.actionButtons {
+  & > * {
+    margin-left: 0.25rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+.card {
+  & > * {
+    pointer-events: none;
+  }
+
+  &.trending {
+    z-index: 1;
+
+    @screen tablet {
+      height: 100%;
+    }
+  }
+
+  & a,
+  & button,
+  & label {
+    pointer-events: all;
+    z-index: 1;
+  }
+
+  & .link {
+    z-index: unset;
+  }
+}
+
+.flag {
+  will-change: transform;
+  z-index: 0;
+  transition: transform 0.1s linear;
+}
+
+.cardContainer:hover .flag, .flag:hover {
+  transform: none;
+  z-index: 1;
+  transition: transform 0.1s linear, z-index 0.1s step-end;
+}
+
+.header > a, .header > button {
+  margin: 0 0.375rem;
+}
+
+.post {
+  &.hideContent > * {
+    visibility: hidden;
+
+    &.show {
+      visibility: visible;
+    }
+  }
+
+  &.read {
+    border-color: var(--theme-divider-quaternary);
+    background: var(--theme-background-primary);
+    box-shadow: none;
+
+    & .title {
+      color: var(--theme-label-tertiary);
+    }
+  }
+
+  @screen mouse {
+    & .authorBox {
+      visibility: hidden;
+    }
+
+    &:hover .authorBox {
+      visibility: visible;
+    }
+  }
+}
